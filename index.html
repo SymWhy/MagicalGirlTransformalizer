@@ -6,12 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magical Girl Transformalizer</title>
-    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <audio preload="auto" id="music" class="paused" src="/source/sfx/transformalizer_music.mp3"></audio>
-    <audio preload="auto" id="sfx" class="paused" src="/source/sfx/transformalizer_sfx.mp3"></audio>
+    <audio preload="auto" id="music" src="/source/sfx/transformalizer_music.mp3"></audio>
+    <audio preload="auto" id="sfx" src="/source/sfx/transformalizer_sfx.mp3"></audio>
+
+    <button id="play-button" class="button">PLAY</button>
 
     <script src="https://unpkg.com/web-audio-daw"></script>
     <script src="mg_visualizer.js"></script>
