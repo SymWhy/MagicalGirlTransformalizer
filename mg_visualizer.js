@@ -1,6 +1,7 @@
 //javascript source code
 //using Web Audio DAW
 
+const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioContext = new AudioContext();
 
 /*let audMusic = new Audio();
@@ -19,11 +20,19 @@ document.body.appendChild(audSFX);
 
 let srcMusic = audioContext.createMediaElementSource(audMusic);
 let srcSFX = audioContext.createMediaElementSource(audSFX);*/
-let eleMusic = document.getElementById('music');
-let eleSFX = document.getElementById('sfx');
+const eleMusic = document.getElementById('music');
+const eleSFX = document.getElementById('sfx');
 
 let srcMusic = audioContext.createMediaElementSource(eleMusic);
 let srcSFX = audioContext.createMediaElementSource(eleSFX);
 
 srcMusic.connect(audioContext.destination);
 srcSFX.connect(audioContext.destination);
+
+const playButton = document.getElementById('play-button');
+playButton.addEventListener('click', ()=> {
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
+    console.log('click registered');
+});
