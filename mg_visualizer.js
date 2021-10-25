@@ -36,7 +36,17 @@ playButton.addEventListener('click', ()=> {
         console.log('audio context initialized'); //debug
     }
 
+    if (eleMusic.paused === false) {
+        eleMusic.pause();
+    }
+
+    if (eleSFX.paused === false) {
+        eleSFX.pause();
+    }
+
     eleMusic.currentTime = 0;
     eleSFX.currentTime = 0;
+
+
     console.log('click registered'); //debug
 });
