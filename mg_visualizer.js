@@ -33,7 +33,6 @@ const playButton = document.getElementById('play-button');
 playButton.addEventListener('click', ()=> {
     if (audioContext.state === 'suspended') {
         audioContext.resume();
-        console.log('audio context initialized'); //debug
     }
 
     if (eleMusic.paused === false) {
@@ -47,6 +46,8 @@ playButton.addEventListener('click', ()=> {
     eleMusic.currentTime = 0;
     eleSFX.currentTime = 0;
 
+    eleMusic.play();
+    eleSFX.play();
 
     console.log('click registered'); //debug
 });
