@@ -4,22 +4,6 @@
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioContext = new AudioContext();
 
-/*let audMusic = new Audio();
-audMusic.id = 'music';
-audMusic.className = 'paused';
-audMusic.src = '/source/sfx/transformalizer_music.mp3';
-audMusic.controls = false;
-document.body.appendChild(audMusic);
-
-let audSFX = new Audio();
-audSFX.id = 'sfx';
-audSFX.className = 'paused';
-audSFX.src = '/source/sfx/transformalizer_sfx.mp3';
-audSFX.controls = false;
-document.body.appendChild(audSFX);
-
-let srcMusic = audioContext.createMediaElementSource(audMusic);
-let srcSFX = audioContext.createMediaElementSource(audSFX);*/
 const eleMusic = document.getElementById('music');
 const eleSFX = document.getElementById('sfx');
 
@@ -35,19 +19,17 @@ playButton.addEventListener('click', ()=> {
         audioContext.resume();
     }
 
-    if (eleMusic.paused === false) {
+    if (playButton.getAttribute('class') === 'paused') {
+        eleMusic.play();
+        eleSFX.play();
+        playButton.setAttribute('class', 'playing');
+        console.log('Playing...'); //debug
+    }
+
+    else if (playButton.getAttribute('class') === 'playing') {
         eleMusic.pause();
-    }
-
-    if (eleSFX.paused === false) {
         eleSFX.pause();
+        playButton.setAttribute('class', 'paused');
+        console.log('Pausing...'); //debug
     }
-
-    eleMusic.currentTime = 0;
-    eleSFX.currentTime = 0;
-
-    eleMusic.play();
-    eleSFX.play();
-
-    console.log('click registered'); //debug
 });
