@@ -19,17 +19,23 @@ playButton.addEventListener('click', ()=> {
         audioContext.resume();
     }
 
-    if (playButton.getAttribute('class') === 'paused') {
+    if (this.getAttribute('class') === 'paused') {
         eleMusic.play();
         eleSFX.play();
-        playButton.setAttribute('class', 'playing');
+        this.setAttribute('class', 'playing');
         console.log('Playing...'); //debug
     }
 
-    else if (playButton.getAttribute('class') === 'playing') {
+    else if (this.getAttribute('class') === 'playing') {
         eleMusic.pause();
         eleSFX.pause();
-        playButton.setAttribute('class', 'paused');
+        this.setAttribute('class', 'paused');
         console.log('Pausing...'); //debug
     }
 });
+
+const musButton = document.getElementById('music-button');
+musButton.addEventListener('click', () => {});
+
+const sfxButton = document.getElementById('sfx-button');
+sfxButton.addEventListener('click', () => {});
