@@ -15,9 +15,7 @@ srcSFX.connect(audioContext.destination);
 
 const playButton = document.getElementById('play-button');
 playButton.addEventListener('click', ()=> {
-    if (audioContext.state === 'suspended') {
-        audioContext.resume();
-    }
+    checkAC();
 
     if (playButton.getAttribute('class') === 'paused') {
         eleMusic.play();
@@ -35,7 +33,17 @@ playButton.addEventListener('click', ()=> {
 });
 
 const musButton = document.getElementById('music-button');
-musButton.addEventListener('click', () => {});
+musButton.addEventListener('click', () => {
+    checkAC();
+});
 
 const sfxButton = document.getElementById('sfx-button');
-sfxButton.addEventListener('click', () => {});
+sfxButton.addEventListener('click', () => {
+    checkAC();
+});
+
+function checkAC() {
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
+}
